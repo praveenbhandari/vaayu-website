@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="HTML5 website template">
+  <meta name="keywords" content="global, template, html, sass, jquery">
+  <meta name="author" content="Bucky Maler">
+  <!-- <link rel="stylesheet" href="assets/css/main.css"> -->
+  <title>Team Vaayushastra</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * {
+
+      box-sizing: border-box;
+    }
+
+    @font-face {
+      font-family: 'Montserrat';
+      src: url("fonts/Montserrat-Black.eot");
+      src: local("☺"), url("fonts/Montserrat-Black.woff") format("woff"), url("fonts/Montserrat-Black.ttf") format("truetype"), url("fonts/Montserrat-Black.svg") format("svg");
+      font-weight: 900;
+      font-style: normal
+    }
+
+    @font-face {
+      font-family: 'Montserrat';
+      src: url("fonts/Montserrat-Bold.eot");
+      src: local("☺"), url("fonts/Montserrat-Bold.woff") format("woff"), url("fonts/Montserrat-Bold.ttf") format("truetype"), url("fonts/Montserrat-Bold.svg") format("svg");
+      font-weight: 700;
+      font-style: normal
+    }
+
+    @font-face {
+      font-family: 'Montserrat';
+      src: url("fonts/Montserrat-Regular.eot");
+      src: local("☺"), url("fonts/Montserrat-Regular.woff") format("woff"), url("fonts/Montserrat-Regular.ttf") format("truetype"), url("fonts/Montserrat-Regular.svg") format("svg");
+      font-weight: 400;
+      font-style: normal
+    }
+
+    @font-face {
+      font-family: 'Montserrat';
+      src: url("fonts/Montserrat-Light.eot");
+      src: local("☺"), url("fonts/Montserrat-Light.woff") format("woff"), url("fonts/Montserrat-Light.ttf") format("truetype"), url("fonts/Montserrat-Light.svg") format("svg");
+      font-weight: 300;
+      font-style: normal
+    }
+
+    body {
+      font-size: 14px;
+      line-height: 1.6;
+      font-family: "Montserrat", sans-serif;
+      /* color: #fff; */
+      -webkit-font-smoothing: antialiased;
+      -webkit-text-size-adjust: 100%;
+
+
+      /* font-family: "Montserrat", sans-serif; */
+      background-color: #0c0c0c;
+      display: flex;
+      flex-direction: column;
+      font-family: Helvetica, sans-serif;
+    }
+
+    .h2 {
+      position: center;
+      font-weight: 900;
+      font-size: 20px;
+      line-height: 1.6;
+
+      text-transform: uppercase;
+    }
+
+    /* The actual timeline (the vertical ruler) */
+    .timeline {
+
+      font-family: "Montserrat", sans-serif;
+      position: relative;
+      max-width: 1200px;
+      margin: 0 auto;
+      color: white;
+      margin-top: 50px;
+    }
+
+    /* The actual timeline (the vertical ruler) */
+    .timeline::after {
+      content: '';
+      position: absolute;
+      width: 6px;
+      color: white;
+      background-color: white;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      margin-left: -3px;
+    }
+
+    /* Container around content */
+    .container {
+      border-radius: 20px;
+      background-color: #282828;
+      padding: 10px 40px;
+      position: relative;
+      color: inherit;
+      width: 50%;
+    }
+
+    .card {
+      background-color: #282828;
+      border-radius: 6px;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+      transition: 0.3s;
+      width: 300px;
+    }
+
+    .card:hover {
+      box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    }
+
+    /*card container */
+    .card-container {
+      padding: 2px 16px;
+    }
+
+    /* The circles on the timeline */
+    .container::after {
+      content: '';
+      position: absolute;
+      width: 25px;
+      height: 25px;
+      right: -17px;
+      background-color: #282828;
+      border: 4px solid #FF9F55;
+      top: 15px;
+      border-radius: 50%;
+      z-index: 1;
+    }
+
+    /* Place the container to the left */
+    .left {
+      left: 0;
+    }
+
+    /* Place the container to the right */
+    .right {
+      left: 50%;
+    }
+
+    /* Add arrows to the left container (pointing right) */
+    .left::before {
+      content: " ";
+      height: 0;
+      position: absolute;
+      top: 22px;
+      width: 0;
+      z-index: 1;
+      right: 30px;
+      background-color: #282828;
+      /* border-width: 10px 0 10px 10px; */
+      border-color: transparent transparent transparent #282828;
+    }
+
+    .img {
+      border-radius: 20px;
+    }
+
+    /* Add arrows to the right container (pointing left) */
+    .right::before {
+      content: " ";
+      height: 0;
+      position: absolute;
+      top: 22px;
+      width: 0;
+      z-index: 1;
+      left: 30px;
+      background-color: #282828;
+      border-width: 10px 10px 10px 0;
+      border-color: transparent #282828 transparent transparent;
+    }
+
+    /* Fix the circle for containers on the right side */
+    .right::after {
+      left: -16px;
+    }
+
+    /* The actual content */
+    .content {
+      padding: 20px 30px;
+      background-color: #282828;
+      position: relative;
+      border-radius: 6px;
+    }
+
+
+
+    /* Media queries - Responsive timeline on screens less than 600px wide */
+    @media screen and (max-width: 600px) {
+
+      /* Place the timelime to the left */
+      .timeline::after {
+        left: 31px;
+      }
+
+      /* Full-width containers */
+      .container {
+        background-color: #282828;
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+      }
+
+
+
+      /* Make sure that all arrows are pointing leftwards */
+      .container::before {
+        left: 60px;
+        background-color: #282828;
+        border: medium solid white;
+        border-width: 10px 10px 10px 0;
+        border-color: transparent white transparent transparent;
+      }
+
+      /* Make sure all circles are at the same spot */
+      .left::after,
+      .right::after {
+        left: 15px;
+      }
+
+      /* Make all right containers behave like the left ones */
+      .right {
+        left: 0%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- <div class="card-wrapper" style = " display: flex; flex-direction: column; align-items: center">
+  <h2>All Products</h2>
+  <div class="card">
+    <img src="crocin_adva.jpg" alt="Avatar" style="width:292px; height: auto">
+    <div class="card-container">
+      <h4><b>Dolo - 650</b></h4> 
+      <p>Manufacturer: 0x13dfghjk567ghjk456sdfghj56AS5</p>
+      
+    </div>
+  </div>
+</div> -->
+
+  <div class="timeline">
+    <div class="container left">
+      <div class="content">
+        <img class="img" height="250px" width="350px" src="img/moltres.png" alt="Alex Nowak">
+        <div class="h2">
+          <h2>Moltres (2021-22)</h2>
+        </div>
+        <!-- <h4>Name - Dolo - 650</h4> -->
+        <p>Moltres will be seen flying around the Wild Area on the
+          Isle
+          of Armor, the team ranked 5th globally.</p>
+      </div>
+    </div>
+    <div class="container right">
+      <div class="content">
+        <img height="250px" class="img" width="350px" src="img/iso.jpg" alt="Alex Nowak">
+        <div class="h2">
+          <h2>Black Darter (2020-21)</h2>
+        </div>
+        <!-- <h4>Manufacturer - 0x13dfhjk56ghjj56AS5</h4> -->
+        <p>Working with the Black Darter has left no doubts why
+          aviation has been in the
+          dreams and imagination of man as long as
+          history can tell.</p>
+      </div>
+    </div>
+    <div class="container left">
+      <div class="content">
+        <img class="img" height="250px" width="350px" src="img/2019hermes.jpg" alt="Alex Nowak">
+        <div class="h2">
+          <h2>Hermes (2019-20)</h2>
+        </div>
+        <!-- <h4>Retailer - 0xrdfh87565bgtytgv89</h4> -->
+        <p>The team secured a 9th rank in design report and 9th rank
+          overall.</p>
+      </div>
+    </div>
+    <div class="container right">
+      <div class="content">
+        <img class="img" height="250px" width="350px" src="img/2018aurora.jpg" alt="Alex Nowak">
+        <div class="h2">
+          <h2>Aurora (2018-19)</h2>
+        </div>
+        <!-- <h4>Manufacturer - 0x13dfhjk56ghjj56AS5</h4> -->
+        <p>The team secured a 5th rank in the presentation round and
+          bettered its overall rank to 9th globally.</p>
+      </div>
+    </div>
+    <div class="container left">
+      <div class="content">
+        <img class="img" height="250px" width="350px" src="img/2017nightfury.jpg" alt="Alex Nowak">
+        <div class="h2">
+          <h2>Night Fury (2017-18)</h2>
+        </div>
+        <!-- <h4>Retailer - 0xrdfh87565bgtytgv89</h4> -->
+        <p>The team ranked 4th in design report and 14th overall.</p>
+      </div>
+    </div>
+    <div class="container right">
+      <div class="content">
+        <img class="img" height="250px" width="350px" src="img/2016albatross.jpeg" alt="Alex Nowak">
+        <div class="h2">
+          <h2>Albatross (2016-17)</h2>
+        </div>
+        <!-- <h4>Manufacturer - 0x13dfhjk56ghjj56AS5</h4> -->
+        <p>The team secured a 3rd position in the presentation round
+          and an overall 5th rank besides retaining its reputation as
+          the best team from the continent for the third consecutive year.</p>
+      </div>
+    </div>
+    <div class="container left">
+      <div class="content">
+        <img class="img" height="250px" width="350px" src="img/2015.jpg" alt="Alex Nowak">
+        <div class="h2">
+          <h2>Falcon (2015-16)</h2>
+        </div>
+        <!-- <h4>Retailer - 0xrdfh87565bgtytgv89</h4> -->
+        <p>The team retained its 6th place while again outperforming
+          all other
+          teams from Asia-Pacific.</p>
+      </div>
+    </div>
+    <div class="container right">
+      <div class="content">
+        <img class="img" height="250px" width="350px" src="img/2014phoenix.jpeg" alt="Alex Nowak">
+        <div class="h2">
+          <h2>Phoenix (2014-15)</h2>
+        </div>
+        <!-- <h4>Manufacturer - 0x13dfhjk56ghjj56AS5</h4> -->
+        <p>The team attained the 1st position in the presentation
+          round,
+          superseding internationally reputed teams. The team also
+          improved its overall rank by securing a 6th position besides turning up as the best team from
+          the
+          Asia-Pacific region.</p>
+      </div>
+    </div>
+    <div class="container left">
+      <div class="content">
+        <img class="img" height="250px" width="350px" src="img/2013 (1).png" alt="Alex Nowak">
+        <div class="h2">
+          <h2>Zephyrus (2013-14)</h2>
+        </div>
+        <!-- <h4>Retailer - 0xrdfh87565bgtytgv89</h4> -->
+        <p>With in the team's second year at the competition, we
+          bettered our
+          position in
+          the competition by achieving a global 7th
+          rank.</p>
+      </div>
+    </div>
+    <div class="container right">
+      <div class="content">
+        <img class="img" height="250px" width="350px" src="img/2012marut.jpeg" alt="Alex Nowak">
+        <div class="h2">
+          <h2>Marut (2012-13)</h2>
+        </div>
+        <!-- <h4>Manufacturer - 0x13dfhjk56ghjj56AS5</h4> -->
+        <p>In its maiden appearance at the competition, the team
+          exceeded all
+          expectations by attaining an overall 10th rank
+          internationally.</p>
+      </div>
+    </div>
+
+  </div>
+</body>
+
+</html>
