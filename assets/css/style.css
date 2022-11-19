@@ -22,7 +22,7 @@
   }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 500px) {
 
   .digit {
     max-width: 90%;
@@ -32,7 +32,7 @@
   }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 500px) {
 
   .heading {
     max-width: 20%;
