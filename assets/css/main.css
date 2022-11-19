@@ -1170,9 +1170,18 @@ body {
   }
 }
 
+@media (max-width: 400px) {
+  .about--banner {
+    max-width: 100%;
+    font-size: 12px;
+  }
+}
+
+
+
 .about--banner {
   position: relative;
-  height: 475px;
+  height: 400px;
   width: 115;
   word-wrap: break-word;
 }
